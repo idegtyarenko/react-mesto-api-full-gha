@@ -5,7 +5,6 @@
       "files": ["*.js"],
       "rules": {
         "no-underscore-dangle": "off",
-        "no-console": "off",
         "import/extensions": [
           "error",
           {
