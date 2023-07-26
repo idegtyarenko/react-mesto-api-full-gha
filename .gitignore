@@ -1,13 +1,12 @@
 # Logs
-logs
+backend/logs
 *.log
-npm-debug.log*
 
 # Dependency directory
 node_modules
 
 # production
-/build
+frontend/build
 
 # Misc
 .DS_Store

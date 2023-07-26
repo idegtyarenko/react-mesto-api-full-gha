@@ -1,5 +1,3 @@
-export const unhandledErrorMessage = (err, origin) => `${origin}: '${err.name}' c текстом '${err.message}' не была обработана.`;
-
 export const JWT_KEY = 'some-secret-key';
 export const DATABASE_URL = 'mongodb://localhost:27017/mestodb';
 
