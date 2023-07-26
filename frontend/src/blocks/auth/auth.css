@@ -1,0 +1,11 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+  margin: 60px 30px 80px;
+}
+
+@media screen and (max-width: 487px) {
+  .auth {
+    margin-block: 40px;
+  }
+}

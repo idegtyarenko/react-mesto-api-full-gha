@@ -1,0 +1,8 @@
+.places__delete-icon {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-image: url('../../../images/icon_delete.svg');
+  width: 18px;
+  height: 19px;
+}

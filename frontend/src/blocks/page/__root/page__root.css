@@ -1,0 +1,8 @@
+.page__root {
+  max-width: 880px;
+  min-width: 320px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

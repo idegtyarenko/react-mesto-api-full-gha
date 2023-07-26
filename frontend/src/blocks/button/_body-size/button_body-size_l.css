@@ -1,0 +1,19 @@
+.button_body-size_l {
+  padding-block: 14px;
+  font-size: 18px;
+  line-height: 22px;
+  background-size: 22px;
+  border-radius: 2px;
+}
+
+.button_body-size_l:empty {
+  height: 50px;
+}
+
+@media screen and (max-width: 487px) {
+  .button_body-size_l {
+    background-size: 16px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

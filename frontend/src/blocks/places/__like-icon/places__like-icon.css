@@ -1,0 +1,10 @@
+.places__like-icon {
+  background-image: url('../../../images/icon_like.svg');
+  width: 22px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.places__like-icon:hover {
+  opacity: 0.5;
+}

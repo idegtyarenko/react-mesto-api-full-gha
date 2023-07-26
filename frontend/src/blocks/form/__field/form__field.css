@@ -1,0 +1,14 @@
+.form__field {
+  position: relative;
+}
+
+.form__field:last-of-type {
+  flex-grow: 1;
+  margin-bottom: 28px;
+}
+
+@media screen and (max-width: 538px) {
+  .form__field:last-of-type {
+    margin-bottom: 25px;
+  }
+}

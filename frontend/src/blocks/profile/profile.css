@@ -1,0 +1,14 @@
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 26px 30px;
+  padding-block: 20px;
+}
+
+@media screen and (max-width:918px) {
+  .profile {
+    margin-inline: 19px;
+  }
+}

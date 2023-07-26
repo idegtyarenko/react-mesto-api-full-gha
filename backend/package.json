@@ -1,0 +1,41 @@
+{
+  "name": "express-mesto-gha",
+  "version": "0.0.1",
+  "description": "Express.js backend for Mesto",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-modules app.js",
+    "dev": "nodemon --experimental-modules app.js",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idegtyarenko/express-mesto-gha.git"
+  },
+  "author": "Ivan Degtiarenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idegtyarenko/express-mesto-gha/issues"
+  },
+  "homepage": "https://github.com/idegtyarenko/express-mesto-gha#readme",
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "celebrate": "^15.0.1",
+    "cookie-parser": "^1.4.6",
+    "escape-html": "^1.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.3.1",
+    "validator": "^13.9.0"
+  }
+}

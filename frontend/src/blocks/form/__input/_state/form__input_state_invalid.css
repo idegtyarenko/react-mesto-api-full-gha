@@ -1,0 +1,3 @@
+.form__input_state_invalid, .form__input_state_invalid:focus {
+  border-bottom-color: red;
+}

@@ -1,0 +1,21 @@
+.profile__name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 546px;
+}
+
+@media screen and (max-width:618px) {
+  .profile__name-wrapper {
+    gap: 10px;
+    max-width: calc(100% - 19px);
+  }
+}
+
+@media screen and (max-width: 487px) {
+  .profile__name-wrapper {
+    justify-content: center;
+    position: relative;
+    left: 14px;
+  }
+}

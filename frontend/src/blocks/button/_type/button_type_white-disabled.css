@@ -1,0 +1,11 @@
+.button_type_white-disabled {
+  opacity: 0.4;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  cursor: auto;
+}
+
+.button_type_white-disabled:hover {
+  opacity: 0.4;
+}

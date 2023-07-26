@@ -1,0 +1,14 @@
+.error__title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  max-width: 546px;
+}
+
+@media screen and (max-width:618px) {
+  .error__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

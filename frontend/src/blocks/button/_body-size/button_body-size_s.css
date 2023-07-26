@@ -1,0 +1,14 @@
+.button_body-size_s {
+  padding: 11px;
+  background-size: 10px;
+  border-width: 1px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@media screen and (max-width:618px) {
+  .button_body-size_s {
+    padding: 8px;
+    background-size: 7.5px;
+  }
+}

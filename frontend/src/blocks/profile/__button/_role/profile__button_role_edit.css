@@ -1,0 +1,4 @@
+.profile__button_role_edit {
+  background-image: url('../../../../images/icon_edit.svg');
+  flex-shrink: 0;
+}

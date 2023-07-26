@@ -1,0 +1,11 @@
+.popup__container_padding_l {
+  padding: 60px 36px;
+  gap: 32px;
+  align-items: center;
+}
+
+@media screen and (max-width: 487px) {
+  .popup__container_padding_l {
+    padding: 50px 18px;
+  }
+}
