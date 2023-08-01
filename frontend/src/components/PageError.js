@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function PageError ({ errorMessage, fetchData }) {
   return (
     <section className="profile" aria-label="Ошибка загрузки">

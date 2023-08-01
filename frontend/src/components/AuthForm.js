@@ -1,3 +1,4 @@
+import React from 'react';
 import useFormValidation from '../hooks/useFormValidation';
 
 export default function AuthForm ({

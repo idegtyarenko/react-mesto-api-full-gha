@@ -1,5 +1,6 @@
-import { isEmptyObject } from "../utils/utils";
+import React from 'react';
 
+import { isEmptyObject } from "../utils/utils";
 import Popup from "./Popup";
 
 export default function InfoTooltip ({ state, onClose }) {
