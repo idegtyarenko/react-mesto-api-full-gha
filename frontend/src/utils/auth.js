@@ -1,4 +1,5 @@
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+console.log(process.env.REACT_APP_API_BASE_URL);
 
 function fetchResource ({ endpoint, method, headers, bodyObject, successStatus }) {
   return fetch(BASE_URL + endpoint, {
