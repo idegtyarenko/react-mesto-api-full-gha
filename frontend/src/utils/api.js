@@ -16,7 +16,8 @@ class Api {
     const params = {
       method: method,
       headers: this.headers,
-      body: JSON.stringify(bodyObj)
+      body: JSON.stringify(bodyObj),
+      credentials: 'include',
     };
     return [this._makeUrl(path), params];
   }

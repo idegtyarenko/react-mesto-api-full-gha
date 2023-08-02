@@ -4,6 +4,7 @@ function fetchResource ({ endpoint, method, headers, bodyObject, successStatus }
   return fetch(BASE_URL + endpoint, {
     method,
     headers,
+    credentials: 'include',
     body: JSON.stringify(bodyObject)
   })
   .then(res => {
@@ -43,9 +44,9 @@ export function checkToken (token) {
     endpoint: '/users/me',
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Content-Type': 'application/json'
     },
-    successStatus: 200
+    successStatus: 200,
+    includeCredentials: true
   });
 }
