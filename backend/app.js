@@ -11,6 +11,7 @@ import { DATABASE_URL, PORT } from './utils/config.js';
 import NotFoundError from './errors/NotFoundError.js';
 import router from './routes/index.js';
 import { requestLogger, errorLogger } from './middlewares/logger.js';
+import cors from './middlewares/cors.js';
 
 const app = express();
 mongoose.connect(DATABASE_URL);
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(requestLogger);
 
+app.use(cors);
 app.use('/', router);
 app.all('*', (req, res, next) => {
   next(new NotFoundError());
