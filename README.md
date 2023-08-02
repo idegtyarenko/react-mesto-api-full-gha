@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.39.240
+IP 158.160.39.240
 
 Frontend https://svyatomesto.nomoreparties.co
 
