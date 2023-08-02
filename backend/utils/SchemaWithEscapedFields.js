@@ -6,7 +6,6 @@ export default class SchemaWithEscapedFields extends mongoose.Schema {
     super(definition);
     this.pre('save', function escapeSpecialCharactersOnSave(next) {
       escapedFieldNames.forEach((name) => {
-        console.log('saving');
         this[name] = escape(this[name]);
       });
       next();

@@ -1,8 +1,6 @@
 import { allowedCors } from '../utils/config.js';
 
 export default function cors(req, res, next) {
-  console.log('request');
-
   const { origin } = req.headers;
   const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
