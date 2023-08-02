@@ -30,6 +30,13 @@ app.use(cookieParser());
 app.use(requestLogger);
 
 app.use(cors);
+// For review purposes. To be removed
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+// ----------------------------------
 app.use('/', router);
 app.all('*', (req, res, next) => {
   next(new NotFoundError());
