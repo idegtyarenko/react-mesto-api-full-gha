@@ -9,7 +9,7 @@ const {
 } = process.env;
 
 const DEV_JWT_SECRET = 'some-secret-key';
-const DEV_DB_HOST = 'mongodb://127.0.0.1:27017/mydatabase';
+const DEV_DB_HOST = 'mongodb://127.0.0.1:27017/mestodb';
 const DEV_SERVER_PORT = 3000;
 const DEV_FRONTEND_HOST = 'http://localhost:3001';
 
