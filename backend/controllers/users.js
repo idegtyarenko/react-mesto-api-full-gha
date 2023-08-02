@@ -3,7 +3,8 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 import User from '../models/user.js';
-import { messages, statusCodes, JWT_KEY } from '../utils/constants.js';
+import { messages, statusCodes } from '../utils/constants.js';
+import { JWT_KEY } from '../utils/config.js';
 import NotFoundError from '../errors/NotFoundError.js';
 import InvalidIdError from '../errors/InvalidIdError.js';
 import ValidationError from '../errors/ValidationError.js';

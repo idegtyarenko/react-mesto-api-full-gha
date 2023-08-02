@@ -2,21 +2,16 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import process from 'process';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { errors } from 'celebrate';
 
-import {
-  messages,
-  statusCodes,
-  DATABASE_URL,
-} from './utils/constants.js';
+import { messages, statusCodes } from './utils/constants.js';
+import { DATABASE_URL, PORT } from './utils/config.js';
 import NotFoundError from './errors/NotFoundError.js';
 import router from './routes/index.js';
 import { requestLogger, errorLogger } from './middlewares/logger.js';
 
-const { PORT = 3000 } = process.env;
 const app = express();
 mongoose.connect(DATABASE_URL);
 const limiter = rateLimit({
