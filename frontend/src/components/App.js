@@ -130,7 +130,7 @@ function App() {
     }
     authCheckToken(token)
     .then(res => {
-      setUserEmail(res.data.email);
+      setUserEmail(res.email);
       setTokenChecked(true);
       navigate('/', {replace: true});
     })
