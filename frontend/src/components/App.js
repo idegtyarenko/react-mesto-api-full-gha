@@ -120,25 +120,21 @@ function App() {
   // Проверка токена
 
   function checkToken () {
-    const token = localStorage.getItem('jwt');
-    if (!token || isTokenChecked) {
+    if (isTokenChecked) {
       setTokenChecked(true);
       return;
     }
     if (isTokenChecked) {
       return;
     }
-    authCheckToken(token)
+    authCheckToken()
     .then(res => {
       setUserEmail(res.email);
       setTokenChecked(true);
       navigate('/', {replace: true});
     })
     .catch(err => {
-      console.error(err);
-      if (Math.floor(parseInt(err) / 100) === 4) {
-        localStorage.removeItem('jwt');
-      }
+      console.error(err.message);
       setTokenChecked(true);
     })
   }
@@ -177,7 +173,6 @@ function App() {
       apiCaller: login,
       apiCallerArgs: arguments,
       onSuccess: res => {
-        localStorage.setItem('jwt', res.token);
         setUserEmail(email);
       },
       redirectPath: '/'
@@ -201,7 +196,6 @@ function App() {
 
   function handleSignout() {
     setUserEmail('');
-    localStorage.removeItem('jwt');
     navigate('/sign-in', {replace: true});
   }
 

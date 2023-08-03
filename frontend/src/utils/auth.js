@@ -39,7 +39,7 @@ export function login (email, password) {
   });
 }
 
-export function checkToken (token) {
+export function checkToken () {
   return fetchResource({
     endpoint: '/users/me',
     method: 'GET',
