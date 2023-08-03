@@ -1,7 +1,7 @@
 import { React, useState, useCallback, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { api } from '../utils/api.js';
-import { checkToken as authCheckToken, login, register } from '../utils/auth.js';
+import { checkToken as authCheckToken, login, logout, register } from '../utils/auth.js';
 import { isEmptyObject } from '../utils/utils.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
@@ -195,8 +195,14 @@ function App() {
   }
 
   function handleSignout() {
-    setUserEmail('');
-    navigate('/sign-in', {replace: true});
+    logout()
+      .then(() => {
+        setUserEmail('');
+        navigate('/sign-in', {replace: true});
+      })
+      .catch((err) => {
+        console.error(err.message);
+      });
   }
 
 

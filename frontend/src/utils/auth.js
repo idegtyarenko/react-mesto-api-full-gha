@@ -39,6 +39,14 @@ export function login (email, password) {
   });
 }
 
+export function logout () {
+  return fetchResource({
+    endpoint: '/signout',
+    method: 'POST',
+    successStatus: 200
+  });
+}
+
 export function checkToken () {
   return fetchResource({
     endpoint: '/users/me',

@@ -9,6 +9,7 @@ export const messages = {
   INVALID_CREDENTIALS: 'Неправильный email или пароль',
   UNAUTHORIZED: 'Требуется авторизация',
   LOGIN_SUCCESFUL: 'Вы успешно авторизовались',
+  LOGOUT_SUCCESFUL: 'Ваша сессия закончена',
 };
 
 export const statusCodes = {

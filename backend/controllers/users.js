@@ -91,6 +91,14 @@ export function login(req, res, next) {
     .catch(next);
 }
 
+export function logout(req, res) {
+  res
+    .cookie('jwt', '', {
+      maxAge: 0,
+    })
+    .send({ message: messages.LOGOUT_SUCCESFUL });
+}
+
 export async function updateUser(req, res, next) {
   await User.findByIdAndUpdate(
     req.user._id,

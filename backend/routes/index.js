@@ -5,7 +5,7 @@ import usersRouter from './users.js';
 import cardsRouter from './cards.js';
 import auth from '../middlewares/auth.js';
 import { credentialFieldsSchema, profileFieldsSchema, avatarFieldsSchema } from '../utils/schemas.js';
-import { createUser, login } from '../controllers/users.js';
+import { createUser, login, logout } from '../controllers/users.js';
 
 const router = express.Router();
 
@@ -22,5 +22,6 @@ router.post('/signup', celebrate({
 router.post('/signin', celebrate({
   body: Joi.object().keys(credentialFieldsSchema),
 }), login);
+router.post('/signout', logout);
 
 export default router;
