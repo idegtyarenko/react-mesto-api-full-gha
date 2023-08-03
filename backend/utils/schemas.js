@@ -10,8 +10,8 @@ export const credentialFieldsSchema = {
 };
 
 export const profileFieldsSchema = {
-  name: Joi.string().min(2).max(30),
-  about: Joi.string().min(2).max(30),
+  name: Joi.string().min(2).max(40),
+  about: Joi.string().min(2).max(80),
 };
 
 export const avatarFieldsSchema = {

@@ -23,14 +23,14 @@ const userSchema = new SchemaWithEscapedFields({
     type: String,
     required: true,
     minlength: 2,
-    maxlength: 30,
+    maxlength: 40,
     default: DEFAULT_USER.name,
   },
   about: {
     type: String,
     required: true,
     minlength: 2,
-    maxlength: 30,
+    maxlength: 80,
     default: DEFAULT_USER.about,
   },
   avatar: {

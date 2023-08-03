@@ -60,7 +60,7 @@ export default function EditProfilePopup ({
             placeholder="Кратко о себе"
             required
             minLength="2"
-            maxLength="200"
+            maxLength="80"
           />
           <p className="form__input-error">{errors.about}</p>
         </div>
