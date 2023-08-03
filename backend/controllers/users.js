@@ -95,6 +95,7 @@ export function logout(req, res) {
   res
     .cookie('jwt', '', {
       maxAge: 0,
+      sameSite: true,
     })
     .send({ message: messages.LOGOUT_SUCCESFUL });
 }
