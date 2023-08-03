@@ -243,7 +243,7 @@ function App() {
     if (!cards.length) {
       api.getCards()
       .then(cards => {
-        setCards(cards);
+        setCards(cards.reverse());
       })
       .catch(err => {
         setPageErrorMessage(err.message);
