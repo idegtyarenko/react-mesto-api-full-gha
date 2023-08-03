@@ -46,15 +46,3 @@ export function logout () {
     successStatus: 200
   });
 }
-
-export function checkToken () {
-  return fetchResource({
-    endpoint: '/users/me',
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    successStatus: 200,
-    includeCredentials: true
-  });
-}

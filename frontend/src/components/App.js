@@ -1,7 +1,7 @@
 import { React, useState, useCallback, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { api } from '../utils/api.js';
-import { checkToken as authCheckToken, login, logout, register } from '../utils/auth.js';
+import { login, logout, register } from '../utils/auth.js';
 import { isEmptyObject } from '../utils/utils.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
@@ -24,8 +24,7 @@ import illustration_error from '../images/illustr_error.svg';
 
 function App() {
 
-  const [isTokenChecked, setTokenChecked] = useState(false);
-  const [userEmail, setUserEmail] = useState('');
+  const [isGetProfileAttempted, setGetProfileAttempted] = useState(false);
   const [infoTooltipState, setInfoTooltipState] = useState({});
   const [authAwaitingResponse, setAuthAwaitingResponse] = useState(false);
 
@@ -117,29 +116,22 @@ function App() {
   }
 
 
-  // Проверка токена
+  // Проверка авторизованности и получение профиля
 
-  function checkToken () {
-    if (isTokenChecked) {
-      setTokenChecked(true);
+  function getProfile () {
+    if (isGetProfileAttempted) {
       return;
     }
-    if (isTokenChecked) {
-      return;
-    }
-    authCheckToken()
-    .then(res => {
-      setUserEmail(res.email);
-      setTokenChecked(true);
-      navigate('/', {replace: true});
-    })
-    .catch(err => {
-      console.error(err.message);
-      setTokenChecked(true);
-    })
+    api.getProfileData()
+      .then(res => {
+        setCurrentUser(res);
+        navigate('/', {replace: true});
+      })
+      .catch((err) => {});
+    setGetProfileAttempted(true);
   }
 
-  useEffect(checkToken, [isTokenChecked, navigate]);
+  useEffect(getProfile, [isGetProfileAttempted, navigate]);
 
 
   // Функции работы с авторизацией
@@ -173,7 +165,7 @@ function App() {
       apiCaller: login,
       apiCallerArgs: arguments,
       onSuccess: res => {
-        setUserEmail(email);
+        setGetProfileAttempted(false);
       },
       redirectPath: '/'
     });
@@ -197,7 +189,7 @@ function App() {
   function handleSignout() {
     logout()
       .then(() => {
-        setUserEmail('');
+        setCurrentUser(undefined);
         navigate('/sign-in', {replace: true});
       })
       .catch((err) => {
@@ -207,20 +199,6 @@ function App() {
 
 
   // Операции с профилем
-
-  const fetchProfile = useCallback(() => {
-    if (isEmptyObject(currentUser)) {
-      api.getProfileData()
-      .then(setCurrentUser)
-      .catch(err => {
-        setPageErrorMessage(err.message);
-      });
-    }
-  }, [ currentUser ]);
-
-  useEffect(() => {
-    userEmail && fetchProfile();
-  }, [ fetchProfile, userEmail ])
 
   function handleUpdateUser(userInfo) {
     handleFormSubmit({
@@ -259,13 +237,12 @@ function App() {
 
   function fetchData() {
     setPageErrorMessage('');
-    fetchProfile();
     fetchCards();
   }
 
   useEffect(() => {
-    userEmail && fetchCards();
-  }, [ fetchCards, userEmail ]);
+    currentUser && !isEmptyObject(currentUser) && fetchCards();
+  }, [ fetchCards, currentUser ]);
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(id => id === currentUser._id);
@@ -306,8 +283,8 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <Header userEmail={userEmail} handleSignout={handleSignout} />
-      {isTokenChecked && (
+      <Header userEmail={currentUser ? currentUser.email : ''} handleSignout={handleSignout} />
+      {isGetProfileAttempted && (
         <Routes>
           <Route path="/sign-up" element={
             <Register
@@ -325,7 +302,7 @@ function App() {
             <>
               <ProtectedRouteElement
                 element={Main}
-                loggedIn={!!userEmail}
+                loggedIn={currentUser && !isEmptyObject(currentUser)}
                 onEditAvatar={handleEditAvatarClick}
                 onEditProfile={handleEditProfileClick}
                 onAddPlace={handleAddPlaceClick}
