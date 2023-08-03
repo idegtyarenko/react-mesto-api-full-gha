@@ -12,7 +12,9 @@ export default class SchemaWithEscapedFields extends mongoose.Schema {
     });
     this.pre('findOneAndUpdate', function escapeSpecialCharactersOnUpdate(next) {
       escapedFieldNames.forEach((name) => {
-        this._update[name] = escape(this._update[name]);
+        if (this._update[name]) {
+          this._update[name] = escape(this._update[name]);
+        }
       });
       next();
     });
